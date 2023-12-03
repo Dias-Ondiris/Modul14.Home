@@ -28,7 +28,6 @@ namespace Modul14.Home
                 }
             }
         }
-
         private void ShuffleDeck()
         {
             int n = deck.Count;
@@ -52,7 +51,7 @@ namespace Modul14.Home
             int playerCount = players.Count;
             int cardCount = deck.Count / playerCount;
 
-            for (int i = 0; i < cardCount; i++)
+            for (int i = 0; i < cardCount; i++)//-15
             {
                 foreach (var player in players)
                 {
@@ -79,6 +78,9 @@ namespace Modul14.Home
                 Card card = player.PlayCard();
                 Console.WriteLine($"{player.Name} кладет {card}");
                 playedCards.Add(card);
+                Console.WriteLine(player.Name +" "+player.Hand.Count);
+                player.DisplayHand();
+                Console.WriteLine();
             }
             int winningIndex = DetermineWinner(playedCards);
             Player roundWinner = players[winningIndex];
@@ -87,6 +89,7 @@ namespace Modul14.Home
             {
                 roundWinner.AddCard(card);
             }
+            //Console.ReadLine();
         }
         private int DetermineWinner(List<Card> playedCards)
         {

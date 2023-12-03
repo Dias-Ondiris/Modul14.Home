@@ -30,7 +30,7 @@ namespace Modul14.Home
         {
             foreach (var card in Hand)
             {
-                Console.WriteLine(card);
+                Console.Write(card+" ");
             }
         }
     }
